@@ -1,0 +1,125 @@
+@media(max-width:1024px) {
+    .container {
+        max-width: 990px;
+    }
+}
+
+@media(max-width:768px) {
+    .container {
+        max-width: 690px;
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+
+    .table {
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+
+    .toolbar {
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+
+    .dropdown-menu {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    td {
+        white-space: nowrap;
+    }
+
+    .search-bar input {
+        width: 10rem;
+    }
+}
+
+@media(max-width:576px) {
+    .container {
+        max-width: 400px;
+        padding: 0;
+    }
+
+    tbody tr td:nth-child(3) {
+        white-space: nowrap;
+    }
+
+    table {
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+
+    .modal p {
+        font-size: 12px;
+    }
+
+    .modal h2 {
+        font-size: 20px;
+    }
+
+    .modal {
+        width: 320px;
+    }
+
+    .toolbar {
+        overflow: auto;
+        scrollbar-width: none;
+        gap: 10px;
+        scrollbar-width: 0px;
+    }
+
+    .right-tools {
+        width: 100%;
+    }
+
+    .table {
+        overflow: auto;
+        scrollbar-width: none;
+    }
+
+    .table .container {
+        overflow: auto;
+    }
+
+    .heading p {
+        white-space: nowrap;
+    }
+
+    td {
+        white-space: nowrap;
+    }
+
+    .action-button {
+        white-space: nowrap;
+        padding: 8px 12px;
+    }
+
+    .calendar-button {
+        padding: 10px 0px;
+    }
+}
+
+@media (max-width:425px) {
+    .container {
+        max-width: 320px;
+        padding: 0;
+    }
+
+    .dropdown-menu {
+        width: 150px;
+    }
+}
+
+@media(max-width:320px) {
+    .container {
+        max-width: 260px;
+        padding: 0;
+    }
+
+    .dropdown-menu {
+        left: 30%;
+    }
+}
