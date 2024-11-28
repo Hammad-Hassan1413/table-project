@@ -188,8 +188,6 @@ function showFeedback(message) {
     feedBack.classList.add('animate__fadeInRight');
     feedBack.classList.add('animate__faster');
     setTimeout(function () {
-        feedBack.classList.remove('animate__fadeInRight');
-        feedBack.classList.add('animate__fadeOutRight');
         feedBack.classList.add('hidden');
     }, 2000);
 }
@@ -314,8 +312,6 @@ function applyFilters() {
         const taskPriority = row.querySelector('td:nth-child(5)').textContent.toLowerCase();
     });
 }
-
-
 function positionDropdowns() {
     const statusBtn = document.querySelector('.status-btn');
     const priorityBtn = document.querySelector('.priority-btn');
@@ -323,20 +319,22 @@ function positionDropdowns() {
     const priorityDropdown = document.querySelector('.priority-dropdown');
 
     if (window.innerWidth <= 768) {
+        // For mobile view, position dropdowns based on button position
         if (statusBtn && statusDropdown) {
             const statusRect = statusBtn.getBoundingClientRect();
             statusDropdown.style.position = 'fixed';
-            statusDropdown.style.left = `${statusRect.left + window.scrollX}px`;
-            statusDropdown.style.top = `${statusRect.bottom + window.scrollY + 90}px`;
+            statusDropdown.style.left = `${statusRect.left}px`;
+            statusDropdown.style.top = `${statusRect.bottom + 10}px`; // Adjust spacing as needed
         }
 
         if (priorityBtn && priorityDropdown) {
             const priorityRect = priorityBtn.getBoundingClientRect();
             priorityDropdown.style.position = 'fixed';
-            priorityDropdown.style.left = `${priorityRect.left + window.scrollX}px`;
-            priorityDropdown.style.top = `${priorityRect.bottom + window.scrollY + 75}px`;
+            priorityDropdown.style.left = `${priorityRect.left}px`;
+            priorityDropdown.style.top = `${priorityRect.bottom + 10}px`; // Adjust spacing as needed
         }
     } else {
+        // Reset styles for desktop view
         if (statusDropdown) {
             statusDropdown.style.position = '';
             statusDropdown.style.left = '';
@@ -347,37 +345,12 @@ function positionDropdowns() {
             priorityDropdown.style.left = '';
             priorityDropdown.style.top = '';
         }
-        if (window.innerWidth > 768) {
-            if (statusDropdown) {
-                statusDropdown.style.position = '';
-                statusDropdown.style.left = '';
-                statusDropdown.style.top = '';
-            }
-            if (priorityDropdown) {
-                priorityDropdown.style.position = '';
-                priorityDropdown.style.left = '';
-                priorityDropdown.style.top = '';
-            }
-        }
     }
 }
 
+// Recalculate positions on window resize and orientation change
 window.addEventListener('resize', positionDropdowns);
 window.addEventListener('orientationchange', positionDropdowns);
 
+// Set initial positions after DOM content is loaded
 document.addEventListener('DOMContentLoaded', positionDropdowns);
-
-
-
-// if (window.innerWidth > 768) {
-//     if (statusDropdown) {
-//         statusDropdown.style.position = '';
-//         statusDropdown.style.left = '';
-//         statusDropdown.style.top = '';
-//     }
-//     if (priorityDropdown) {
-//         priorityDropdown.style.position = '';
-//         priorityDropdown.style.left = '';
-//         priorityDropdown.style.top = '';
-//     }
-// }
