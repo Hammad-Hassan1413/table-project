@@ -319,19 +319,18 @@ function positionDropdowns() {
     const priorityDropdown = document.querySelector('.priority-dropdown');
 
     if (window.innerWidth <= 768) {
-        // For mobile view, position dropdowns based on button position
         if (statusBtn && statusDropdown) {
             const statusRect = statusBtn.getBoundingClientRect();
             statusDropdown.style.position = 'fixed';
             statusDropdown.style.left = `${statusRect.left}px`;
-            statusDropdown.style.top = `${statusRect.bottom + 10}px`; // Adjust spacing as needed
+            statusDropdown.style.top = `${statusRect.bottom + 10}px`; 
         }
 
         if (priorityBtn && priorityDropdown) {
             const priorityRect = priorityBtn.getBoundingClientRect();
             priorityDropdown.style.position = 'fixed';
             priorityDropdown.style.left = `${priorityRect.left}px`;
-            priorityDropdown.style.top = `${priorityRect.bottom + 10}px`; // Adjust spacing as needed
+            priorityDropdown.style.top = `${priorityRect.bottom + 10}px`;
         }
     } else {
         // Reset styles for desktop view
@@ -347,10 +346,6 @@ function positionDropdowns() {
         }
     }
 }
-
-// Recalculate positions on window resize and orientation change
 window.addEventListener('resize', positionDropdowns);
 window.addEventListener('orientationchange', positionDropdowns);
-
-// Set initial positions after DOM content is loaded
 document.addEventListener('DOMContentLoaded', positionDropdowns);
