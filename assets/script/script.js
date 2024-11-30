@@ -325,14 +325,29 @@ function positionDropdowns() {
             statusDropdown.style.left = `${statusRect.left}px`;
             statusDropdown.style.top = `${statusRect.bottom + 10}px`; 
         }
-
         if (priorityBtn && priorityDropdown) {
             const priorityRect = priorityBtn.getBoundingClientRect();
             priorityDropdown.style.position = 'fixed';
             priorityDropdown.style.left = `${priorityRect.left}px`;
             priorityDropdown.style.top = `${priorityRect.bottom + 10}px`;
         }
-    } else {
+    }
+    if(window.innerWidth <=576) {
+        if (statusBtn && statusDropdown) {
+            const statusRect = statusBtn.getBoundingClientRect();
+            statusDropdown.style.position = 'fixed';
+            statusDropdown.style.left = '30%';
+            statusDropdown.style.top = `${statusRect.bottom + 10}px`;
+        }
+        if (priorityBtn && priorityDropdown) {
+            const priorityRect = priorityBtn.getBoundingClientRect();
+            priorityDropdown.style.position = 'fixed';
+            priorityDropdown.style.left = '30%';
+            priorityDropdown.style.top = `${priorityRect.bottom + 10}px`;
+        }
+    }
+    
+    else {
         // Reset styles for desktop view
         if (statusDropdown) {
             statusDropdown.style.position = '';
