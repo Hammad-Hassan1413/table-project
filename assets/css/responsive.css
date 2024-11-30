@@ -21,13 +21,6 @@
         scrollbar-width: none;
     }
 
-    .dropdown-menu {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-
     td {
         white-space: nowrap;
     }
@@ -127,9 +120,5 @@
     .container {
         max-width: 260px;
         padding: 0;
-    }
-
-    .dropdown-menu {
-        left: 30%;
     }
 }
