@@ -585,3 +585,19 @@ input[type="checkbox"]:checked::before {
         transform: translate(-50%, -60%);
     }
 }
+.cancel-button:active {
+    background-color: #ff1a1a;
+    transform: scale(.9);
+    color: white;
+    transition: .3s all ease-in-out;
+}
+.submit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
