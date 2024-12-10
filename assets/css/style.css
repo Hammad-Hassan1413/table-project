@@ -591,13 +591,3 @@ input[type="checkbox"]:checked::before {
     color: white;
     transition: .3s all ease-in-out;
 }
-.submit {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-}
