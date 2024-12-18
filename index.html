@@ -283,7 +283,7 @@
         <table>
           <thead>
             <tr>
-              <th class="check"><input type="checkbox" /></th>
+              <th class="check"><input type="checkbox" id="all"/></th>
               <th>Task</th>
               <th>
                 <div class="heading">
@@ -322,7 +322,23 @@
     </div>
     <div class="feedback hidden">
     </div>
-    <div class="pagination "></div>
-
+    <div class="del-modal hidden">
+      <div class="container">
+        <h3>
+          Are you sure you want to delete this task?
+        </h3>
+        <p>
+          This action cannot be undone. This will permanently delete your 1 task from our servers.
+        </p>
+        <div class="buttons">
+          <button class="cancel btn-act">
+            Cancel
+          </button>
+          <button class="task-del btn-act">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
