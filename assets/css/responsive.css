@@ -31,6 +31,15 @@
     .feedback {
         width: 40%;
     }
+    .del-modal h3{
+        font-size: 16px;
+    }
+    .del-modal p{
+        font-size: 10px;
+    }
+    .del-modal .buttons {
+        margin-top: 15px;
+    }
 }
 
 @media(max-width:576px) {

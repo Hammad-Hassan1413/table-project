@@ -311,28 +311,14 @@ function applyFilters() {
         const taskStatus = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
         const taskPriority = row.querySelector('td:nth-child(5)').textContent.toLowerCase();
     });
-}
-function positionDropdowns() {
+}function positionDropdowns() {
     const statusBtn = document.querySelector('.status-btn');
     const priorityBtn = document.querySelector('.priority-btn');
     const statusDropdown = document.querySelector('.status-dropdown');
     const priorityDropdown = document.querySelector('.priority-dropdown');
 
-    if (window.innerWidth <= 768) {
-        if (statusBtn && statusDropdown) {
-            const statusRect = statusBtn.getBoundingClientRect();
-            statusDropdown.style.position = 'fixed';
-            statusDropdown.style.left = `${statusRect.left}px`;
-            statusDropdown.style.top = `${statusRect.bottom + 10}px`; 
-        }
-        if (priorityBtn && priorityDropdown) {
-            const priorityRect = priorityBtn.getBoundingClientRect();
-            priorityDropdown.style.position = 'fixed';
-            priorityDropdown.style.left = `${priorityRect.left}px`;
-            priorityDropdown.style.top = `${priorityRect.bottom + 10}px`;
-        }
-    }
-    if(window.innerWidth <=576) {
+    if (window.innerWidth <= 576) {
+        // Small mobile styles
         if (statusBtn && statusDropdown) {
             const statusRect = statusBtn.getBoundingClientRect();
             statusDropdown.style.position = 'fixed';
@@ -345,10 +331,22 @@ function positionDropdowns() {
             priorityDropdown.style.left = '30%';
             priorityDropdown.style.top = `${priorityRect.bottom + 10}px`;
         }
-    }
-    
-    else {
-        // Reset styles for desktop view
+    } else if (window.innerWidth <= 768) {
+        // Tablet styles
+        if (statusBtn && statusDropdown) {
+            const statusRect = statusBtn.getBoundingClientRect();
+            statusDropdown.style.position = 'fixed';
+            statusDropdown.style.left = `${statusRect.left}px`;
+            statusDropdown.style.top = `${statusRect.bottom + 10}px`; 
+        }
+        if (priorityBtn && priorityDropdown) {
+            const priorityRect = priorityBtn.getBoundingClientRect();
+            priorityDropdown.style.position = 'fixed';
+            priorityDropdown.style.left = `${priorityRect.left}px`;
+            priorityDropdown.style.top = `${priorityRect.bottom + 10}px`;
+        }
+    } else {
+        // Desktop styles
         if (statusDropdown) {
             statusDropdown.style.position = '';
             statusDropdown.style.left = '';
@@ -361,6 +359,78 @@ function positionDropdowns() {
         }
     }
 }
-window.addEventListener('resize', positionDropdowns);
+
+// Debounce the resize event for better performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+const debouncedPositionDropdowns = debounce(positionDropdowns, 250);
+
+window.addEventListener('resize', debouncedPositionDropdowns);
 window.addEventListener('orientationchange', positionDropdowns);
 document.addEventListener('DOMContentLoaded', positionDropdowns);
+
+
+
+
+const delModal = document.querySelector('.del-modal');
+const delModalCancel = document.querySelector('.cancel');
+const delModalDelete = document.querySelector('.task-del');
+
+function showDeleteModal() {
+    delModal.classList.remove('hidden');
+    delModal.classList.add('show');
+    overlay.classList.remove('hidden');
+    overlay.classList.add('show');
+}
+
+function hideDeleteModal() {
+    delModal.classList.remove('show');
+    overlay.classList.remove('show');
+    setTimeout(function () {
+        delModal.classList.add('hidden');
+        overlay.classList.add('hidden');
+    }, );
+}
+
+let taskToDeleteIndex = null;
+
+function deleteRow() {
+    taskToDeleteIndex = this.dataset.index;
+    showDeleteModal();
+}
+
+delModalCancel.addEventListener('click', hideDeleteModal);
+overlay.addEventListener('click', hideDeleteModal);
+
+delModalDelete.addEventListener('click', function() {
+    if (taskToDeleteIndex !== null) {
+        const row = document.querySelector(`[data-index="${taskToDeleteIndex}"]`).closest('tr');
+        row.classList.add('fade-out');
+        
+        setTimeout(() => {
+            tasks.splice(taskToDeleteIndex, 1);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            renderTasks();
+            hideDeleteModal();
+            showFeedback('Task deleted successfully!');
+        }, 300);
+        
+        taskToDeleteIndex = null;
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !delModal.classList.contains('hidden')) {
+        hideDeleteModal();
+    }
+});

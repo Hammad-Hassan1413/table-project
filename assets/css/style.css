@@ -458,6 +458,7 @@ td {
     opacity: 1;
     visibility: visible;
     animation: modalOpen 0.3s ease-in-out;
+    border: 1px solid hsl(240 3.7% 15.9%);
 }
 
 .modal.hidden {
@@ -590,4 +591,133 @@ input[type="checkbox"]:checked::before {
     transform: scale(.9);
     color: white;
     transition: .3s all ease-in-out;
+}
+
+
+
+
+@keyframes modalClose {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+}
+.cancel-button:active {
+    background-color: #ff1a1a;
+    transform: scale(.9);
+    color: white;
+    transition: .3s all ease-in-out;
+}
+
+
+
+button 
+.tag {
+    transition: all 0.2s ease-in-out;
+}
+.feedback {
+    animation: slideIn 0.3s ease-out;
+    transform: translateX(120%);
+}
+
+.feedback.show {
+    transform: translateX(-30px);
+}
+.del-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #09090B;
+    padding: 24px;
+    border-radius: 10px;
+    z-index: 102;
+    border: 1px solid hsl(240 3.7% 15.9%);
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(120%);
+    }
+    to {
+        transform: translateX(-30px);
+    }
+}
+
+.header {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.overlay {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-out {
+    animation: fadeOutRow 0.3s ease-out;
+}
+
+@keyframes fadeOutRow {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+
+.search-bar input {
+    transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.del-modal.hidden {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translate(-50%, -40%) scale(0.95);
+    opacity: 0;
+}
+.del-modal .buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-act{
+    color: white;
+    background-color: #ff1a1a;
+    border: 1px solid hsl(240 3.7% 15.9%);
+    padding: 10px 16px;
+    border-radius: 5px;
+}
+.cancel {
+    background-color: transparent;
+}
+.del-modal.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+
+.btn-act {
+    transition: all 0.2s ease;
+}
+
+.btn-act:active {
+    transform: scale(0.95);
+}
+
+.task-del {
+    transition: all 0.2s ease;
+}
+
+.task-del:hover {
+    background-color: #991b1b;
+    transform: translateY(-1px);
 }
