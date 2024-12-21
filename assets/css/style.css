@@ -613,8 +613,15 @@ input[type="checkbox"]:checked::before {
     color: white;
     transition: .3s all ease-in-out;
 }
-
-
+.pro-bar {
+    display: none;
+    height: 8px;
+    width: 100px;
+    background-color: hsl(240 3.7% 15.9%);
+    border-radius: 50px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
 
 button 
 .tag {
