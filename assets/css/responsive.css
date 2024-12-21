@@ -115,6 +115,9 @@
         bottom: 0;
         text-align: center;
     }
+    .del.modal.show {
+        transform: translate(0%, 0%);
+    }
     .del-modal .buttons {
         flex-direction: column;
     }
