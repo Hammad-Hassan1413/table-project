@@ -120,6 +120,14 @@
     }
     .del-modal .buttons {
         flex-direction: column;
+        gap: 10px;
+    }
+    .pro-bar {
+        display: block;
+        transition: .2s all ease-in-out;
+    }
+    .pro-bar:hover {
+        background-color: wheat;
     }
 }
 
