@@ -7,7 +7,6 @@
 @media(max-width:768px) {
     .container {
         max-width: 690px;
-        overflow: scroll;
         scrollbar-width: none;
     }
 
@@ -107,6 +106,17 @@
     }
     .feedback {
         width: 60%;
+    }
+    .del-modal {
+        top: unset;
+        left: unset;
+        width: 100%;
+        transform: translate(0%, 0%);
+        bottom: 0;
+        text-align: center;
+    }
+    .del-modal .buttons {
+        flex-direction: column;
     }
 }
 
