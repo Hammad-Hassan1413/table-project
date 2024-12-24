@@ -112,7 +112,7 @@ submit.addEventListener('click', function (event) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
     renderTasks();
-    showFeedback('Task added successfully!');
+    showFeedback('✓ Task added successfully!');
     close();
 
     inputTitle.value = '';
@@ -422,7 +422,7 @@ delModalDelete.addEventListener('click', function() {
             localStorage.setItem('tasks', JSON.stringify(tasks));
             renderTasks();
             hideDeleteModal();
-            showFeedback('Task deleted successfully!');
+            showFeedback('✓ Task deleted successfully!');
         }, 300);
         
         taskToDeleteIndex = null;
