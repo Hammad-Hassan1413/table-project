@@ -1,12 +1,20 @@
 @media(max-width:1024px) {
     .container {
-        max-width: 990px;
+        max-width: 100%;
+        margin: 0px 20px;
+        padding: 0;
+    }
+    .del-modal  p {
+        font-size: 14px;
+    }
+    .del-modal .buttons {
+        margin-top: 15px;
     }
 }
 
 @media(max-width:768px) {
     .container {
-        max-width: 690px;
+        padding: 0;
         scrollbar-width: none;
     }
 
@@ -39,13 +47,15 @@
     .del-modal .buttons {
         margin-top: 15px;
     }
+    .table .container {
+        overflow: scroll;
+    }
+    .del-modal p {
+        font-size: 12px;
+    }
 }
 
 @media(max-width:576px) {
-    .container {
-        max-width: 400px;
-        padding: 0;
-    }
 
     tbody tr td:nth-child(3) {
         white-space: nowrap;
@@ -133,8 +143,7 @@
 
 @media (max-width:425px) {
     .container {
-        max-width: 320px;
-        padding: 0;
+        margin: 0px 15px;
     }
 
     .dropdown-menu {
@@ -148,7 +157,6 @@
 
 @media(max-width:320px) {
     .container {
-        max-width: 260px;
-        padding: 0;
+        margin: 0 10px;
     }
 }

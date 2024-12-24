@@ -28,15 +28,10 @@ body {
     color: #fff;
 }
 
-.ligth {
-    background-color: white;
-    color: black;
-}
-
 .container {
     max-width: 1220px;
     margin: 0 auto;
-    padding: 0px 15px;
+    /* padding: 0px 15px; */
 }
 
 .header-flex {
@@ -404,32 +399,6 @@ td {
     user-select: none;
 }
 
-/* .dropdown-menu label::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background-color: transparent;
-}
-
-.dropdown-menu [type="radio"]:checked+label::after {
-    content: "\2713";
-    position: absolute;
-    left: 0px;
-    padding-left: 6px;
-    top: 0px;
-    width: 14px;
-    height: 18px;
-    border-radius: 5px;
-    font-weight: 900;
-    background-color: white;
-    color: black;
-} */
-
 .table {
     margin-bottom: 20px;
 }
@@ -541,17 +510,6 @@ input[type="checkbox"]:checked::before {
 }
 
 
-@keyframes modalOpen {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-}
 
 .fade-out {
     opacity: 0;
@@ -575,37 +533,12 @@ input[type="checkbox"]:checked::before {
     transform: scale(1.04);
 }
 
-@keyframes modalClose {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
 
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
-}
 .cancel-button:active {
     background-color: #ff1a1a;
     transform: scale(.9);
     color: white;
     transition: .3s all ease-in-out;
-}
-
-
-
-
-@keyframes modalClose {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
 }
 .cancel-button:active {
     background-color: #ff1a1a;
@@ -622,7 +555,6 @@ input[type="checkbox"]:checked::before {
     margin: 0 auto;
     margin-bottom: 20px;
 }
-
 button 
 .tag {
     transition: all 0.2s ease-in-out;
@@ -631,7 +563,6 @@ button
     animation: slideIn 0.3s ease-out;
     transform: translateX(120%);
 }
-
 .feedback.show {
     transform: translateX(-30px);
 }
@@ -646,15 +577,6 @@ button
     z-index: 102;
     border: 1px solid hsl(240 3.7% 15.9%);
 }
-@keyframes slideIn {
-    from {
-        transform: translateX(120%);
-    }
-    to {
-        transform: translateX(-30px);
-    }
-}
-
 .header {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -665,19 +587,6 @@ button
 .fade-out {
     animation: fadeOutRow 0.3s ease-out;
 }
-
-@keyframes fadeOutRow {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-}
-
-
 .search-bar input {
     transition: all 0.3s ease;
 }
@@ -686,7 +595,6 @@ button
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
-
 .del-modal.hidden {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translate(-50%, -40%) scale(0.95);
@@ -710,8 +618,6 @@ button
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
-
-
 .btn-act {
     transition: all 0.2s ease;
 }
