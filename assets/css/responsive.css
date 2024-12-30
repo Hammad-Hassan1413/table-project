@@ -26,6 +26,7 @@
     .toolbar {
         overflow: scroll;
         scrollbar-width: none;
+        padding: 2px;
     }
 
     td {
