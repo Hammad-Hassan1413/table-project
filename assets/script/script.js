@@ -81,6 +81,8 @@ function deleteRow() {
     }, 300);
     showFeedback('Task deleted successfully!');
 }
+import { get } from '@vercel/edge-config';
+const greeting = await get('greeting');
 
 submit.addEventListener('click', function (event) {
     event.preventDefault();
@@ -431,3 +433,4 @@ document.addEventListener('keydown', function(e) {
         hideDeleteModal();
     }
 });
+
