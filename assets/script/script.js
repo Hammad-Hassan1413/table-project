@@ -379,9 +379,6 @@ window.addEventListener('resize', debouncedPositionDropdowns);
 window.addEventListener('orientationchange', positionDropdowns);
 document.addEventListener('DOMContentLoaded', positionDropdowns);
 
-
-
-
 const delModal = document.querySelector('.del-modal');
 const delModalCancel = document.querySelector('.cancel');
 const delModalDelete = document.querySelector('.task-del');
