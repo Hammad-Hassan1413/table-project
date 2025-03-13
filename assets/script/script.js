@@ -40,10 +40,10 @@ closeModal.addEventListener("click", close);
 overlay.addEventListener('click', close);
 
 function renderTasks() {
-    tableBody.innerHTML = '';
+    tableBody.innerHTML = ''; 
     tasks.forEach((task, index) => {
         const newRow = `
-            <tr>
+            <tr data-index="${index}">  <!-- Added data-index to tr for reliable reference -->
                 <td><input type="checkbox"></td>
                 <td>${task.id}</td>
                 <td><span class="tag ${task.label}">${task.label}</span> ${task.title}</td>
@@ -53,7 +53,7 @@ function renderTasks() {
                 <td><button class="delete-btn" data-index="${index}">Delete</button></td>
             </tr>
         `;
-        tableBody.insertAdjacentHTML('afterbegin', newRow);
+        tableBody.insertAdjacentHTML('beforeend', newRow); 
     });
 
     applyFilters();
@@ -62,26 +62,28 @@ function renderTasks() {
 
 function addDeleteFunctionality() {
     const deleteButtons = document.querySelectorAll('.delete-btn');
-
+    
     deleteButtons.forEach(button => {
-        button.removeEventListener('click', deleteRow);
-        button.addEventListener('click', deleteRow);
+        button.removeEventListener('click', deleteRow); 
+        button.addEventListener('click', deleteRow);    
     });
 }
 
-function deleteRow() {
-    const rowIndex = this.dataset.index;
-    const row = this.closest('tr');
+function deleteRow(event) {
+    const button = event.currentTarget;                
+    const rowIndex = parseInt(button.dataset.index);   
+    const row = button.closest('tr');                  
 
-    row.classList.add('fade-out');
-    setTimeout(() => {
-        tasks.splice(rowIndex, 1);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        renderTasks();
-    }, 300);
-    showFeedback('Task deleted successfully!');
+    if (row && rowIndex >= 0 && rowIndex < tasks.length) {
+        row.classList.add('fade-out');
+        setTimeout(() => {
+            tasks.splice(rowIndex, 1);                 
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            renderTasks();                            
+            showFeedback('Task deleted successfully!');
+        }, 300);
+    }
 }
-
 submit.addEventListener('click', function (event) {
     event.preventDefault();
 
