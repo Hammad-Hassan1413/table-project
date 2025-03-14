@@ -401,33 +401,33 @@ function hideDeleteModal() {
 
 let taskToDeleteIndex = null;
 
-function deleteRow() {
-    taskToDeleteIndex = this.dataset.index;
-    showDeleteModal();
-}
+// function deleteRow() {
+//     taskToDeleteIndex = this.dataset.index;
+//     showDeleteModal();
+// }
 
-delModalCancel.addEventListener('click', hideDeleteModal);
-overlay.addEventListener('click', hideDeleteModal);
+// delModalCancel.addEventListener('click', hideDeleteModal);
+// overlay.addEventListener('click', hideDeleteModal);
 
-delModalDelete.addEventListener('click', function() {
-    if (taskToDeleteIndex !== null) {
-        const row = document.querySelector(`[data-index="${taskToDeleteIndex}"]`).closest('tr');
-        row.classList.add('fade-out');
+// delModalDelete.addEventListener('click', function() {
+//     if (taskToDeleteIndex !== null) {
+//         const row = document.querySelector(`[data-index="${taskToDeleteIndex}"]`).closest('tr');
+//         row.classList.add('fade-out');
         
-        setTimeout(() => {
-            tasks.splice(taskToDeleteIndex, 1);
-            localStorage.setItem('tasks', JSON.stringify(tasks));
-            renderTasks();
-            hideDeleteModal();
-            showFeedback('✓ Task deleted successfully!');
-        }, 300);
+//         setTimeout(() => {
+//             tasks.splice(taskToDeleteIndex, 1);
+//             localStorage.setItem('tasks', JSON.stringify(tasks));
+//             renderTasks();
+//             hideDeleteModal();
+//             showFeedback('✓ Task deleted successfully!');
+//         }, 300);
         
-        taskToDeleteIndex = null;
-    }
-});
+//         taskToDeleteIndex = null;
+//     }
+// });
 
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && !delModal.classList.contains('hidden')) {
-        hideDeleteModal();
-    }
-});
+// document.addEventListener('keydown', function(e) {
+//     if (e.key === 'Escape' && !delModal.classList.contains('hidden')) {
+//         hideDeleteModal();
+//     }
+// });
