@@ -79,7 +79,7 @@ function deleteRow() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
         renderTasks();
     }, 300);
-    showFeedback('Task deleted successfully!');
+    showFeedback('✓ Task deleted successfully!');
 }
 
 submit.addEventListener('click', function (event) {
